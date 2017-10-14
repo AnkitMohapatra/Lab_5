@@ -1,77 +1,73 @@
 #include<iostream>
 using namespace std;
 
-void inc(int arr[],int input){
-     int c=0;int d=0;
-     for(int i=0;i<input;i++){
-        for(int j=i+1;j<input;j++){
-         if(arr[i]>arr[j]){
-            c=arr[i];
-            arr[i]=arr[j];
-            arr[j]=c;
-
-            }
-}}
-for(int i=0;i<input;i++){
-    cout<<arr[i]<<endl;
-}
-}
-float lar(int arr[],int input){
-int maximum=0;
-for(int i=0;i<input;i++){
-if(maximum<arr[i]){
-    maximum=arr[i];
-}}
-cout<<"\nLargest element in the array is : "<<maximum;
+int inc(int arr[],int size)
+{
+     for(int i=0 ; i<size ; i++)
+        {
+         if(arr[i]>arr[i+1])
+            arr[i+1]=arr[i];
+        }
+for(int i=0 ; i<size ; i++)
+    cout << arr[i] << endl;
 }
 
-float sml(int arr[],int input){
-int minimum=arr[1];
-for(int i=0;i<input;i++){
-    if(minimum>arr[i]){
-    minimum=arr[i];
-}}
-cout<<"\nSmallest element in the array is : "<<minimum;
+float lar(int arr[],int size)
+{
+       int maximum=0;
+       for(int i=0 ; i<size ; i++)
+          {
+           if(maximum<arr[i])
+              maximum=arr[i];
+          }
+       cout << "\nLargest element in the array is : " << maximum;
+}
+
+float sml(int arr[],int size)
+{
+       int minimum = arr[1];
+       for(int i=0 ; i<size ; i++)
+          {
+           if(minimum>arr[i])
+              minimum = arr[i];
+          }
+       cout << "\nSmallest element in the array is : " << minimum;
 }
 
 
-int mer(int sz1,int sz2,int x[],int y[]){
-int i,j;
-int sz=sz1+sz2;
-int z[sz];
-
-for(i=0;i<sz1;i++){
-    z[i]=x[i];
-
-}
-for(j=0;j<sz2;j++){
-    z[sz1+j]=y[j];
-    }
-
-inc(z,sz);
-z[sz];
-lar(z,sz);
-sml(z,sz);
-
-
+int mer(int size1,int size2,int arr1[],int arr2[])
+{
+     int i,j;
+     int size = size1 + size2;
+     int arr[size];
+     for(i=0 ; i<size1 ; i++)
+         arr[i]=arr1[i];
+     for(j=0 ; j<size2 ; j++)
+         arr[size1+j] = arr2[j];
+     inc(arr,size);
+     lar(arr,size);
+     sml(arr,size);
 }
 
-int main (){
-int sz1,sz2,i,j;
-cout<<"Enter the size of the first array : ";
-cin>>sz1;
-int x[sz1];
-for(int i=0;i<sz1;i++){
-    cout<<"Enter the element  : ";
-    cin>>x[i];
-}
-int y[sz2];
-cout<<"Enter the size of the second array : ";
-cin>>sz2;
-for(i=0;i<sz2;i++){
-    cout<<"Enter the element  : ";
-    cin>>y[i];
-}
-mer(sz1,sz2,x,y);
-return 0;
+int main ()
+{
+     int size1,size2,i,j;
+     cout << "Enter the size of the first array : ";
+     cin >> size1;
+     int arr1[size1];
+     for(int i=0 ; i<size1 ; i++)
+        {
+         cout << "Enter the element  : ";
+         cin >> arr1[i];
+        }
+     int arr2[size2];
+     cout << "Enter the size of the second array : ";
+     cin >> size2;
+     for(i=0 ; i<size2 ; i++)
+        {
+         cout << "Enter the element  : ";
+         cin >> arr2[i];
+        }
+     mer(size1,size2,arr1,arr2);
+     return 0;
 }
